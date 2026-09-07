@@ -7,7 +7,7 @@ fi
 export TZ="America/Chicago"
 
 # custom prompt configuration
-PROMPT="%F{219}%B%S aszm %s%b %1~ % %f"
+PROMPT="%F{219}%B%S aszm %s%b %1~ %% %f"
 RPROMPT="%F{219}%D{%Y-%m-%d} @ %T%f"
 
 # compile and execute C++ files
