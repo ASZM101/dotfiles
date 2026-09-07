@@ -8,7 +8,7 @@ export TZ="America/Chicago"
 
 # custom prompt configuration
 PROMPT="%F{219}%B%S aszm %s%b %1~ $ %f"
-RPROMPT="%F{219}%W @%@%f"
+RPROMPT="%F{219}%D{%Y-%m-%d} @ %T%f"
 
 # compile and execute C++ files
 runcpp() { g++-16 -std=c++23 "$1" -o "${1%.*}" && "./${1%.*}"; } # only need semicolon at end if declaring entire func in one line
