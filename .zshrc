@@ -1,5 +1,7 @@
-# set zsh as default shell
-sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+# set zsh as default shell if in codespace
+if [ -n "$CODESPACES" ]; then # -n returns true if str / terminal var is not empty
+    sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+fi
 
 # set time zone to central time
 export TZ="America/Chicago"
@@ -14,7 +16,7 @@ runcpp() { g++-16 -std=c++23 "$1" -o "${1%.*}" && "./${1%.*}"; } # only need sem
 # git automation (stage, commit, push)
 ghpush() {
 	# check if msg was provided
-	if [ -z "$1" ]; then # -z tests if str is empty, $1 is 1st arg after command
+	if [ -z "$1" ]; then # -z returns true if str is empty, $1 is 1st arg after command
 		echo "Error: Please provide a commit message."
 		return 1 # error state
 	fi # end if statements (like closing bracket)
