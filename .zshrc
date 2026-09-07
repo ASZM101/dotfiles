@@ -7,7 +7,7 @@ fi
 export TZ="America/Chicago"
 
 # custom prompt configuration
-PROMPT="%F{219}%B%S aszm %s%b %1~ # %f" # left: pink foreground / text color, bold, standout mode (swaps foreground + background), current folder
+PROMPT="%F{219}%B%S aszm %s%b %1~ % %f" # left: pink foreground / text color, bold, standout mode (swaps foreground + background), current folder
 RPROMPT="%F{219}%D{%Y-%m-%d} @ %T%f" # right: pink foreground / text color, custom date (ISO 8601), 24hr time
 
 # sync settings from dotfiles in repo
