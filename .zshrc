@@ -31,7 +31,7 @@ syncrc() { # rc = run commands
 			# && is safety link operator (runs next command if previous command was successful), \ is line continuation character (treats next line as part of same command, must be last char on line)
             cd "$dir" && \
             git add . && \
-            git commit -m "Update dotfiles ($(date '+%Y-%m-%d %H:%M:%S'))" && \
+            git commit -m "Update dotfiles ($(date '+%Y-%m-%dT%H:%M:%S'))" && \
             git push origin main
         )
 		source ~/.zshrc # source reads + executes contents of file
