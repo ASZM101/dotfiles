@@ -40,7 +40,7 @@ syncrc() { # rc = run commands
     # pull updates from GitHub
     else
         print -P "%F{213}GitHub Codespace detected. Fetching latest configurations...%f" # magenta foreground / text color
-        (cd "$dir" && git pull) && cat "$dir/.zshrc" > ~/.zshrc && source ~/.zshrc # () creates subshell (end up in directory you started)
+        (cd "$dir" && git pull) && source "$dir/.zshrc" # () creates subshell (end up in directory you started)
 		# removed cat "$dir/.zshrc" > ~/.zshrc (cat = concatenate, > overwrites file or creates it if doesn't exist, >> appends to file or creates if nonexistent), source directly from git instead of overwriting, no longer breaks GitHub's symbolic link (symlink) to dotfiles repo
         print -P "%F{46}Codespace configurations updated successfully!%f" # green foreground / text color
     fi
