@@ -65,7 +65,7 @@ ghpush() {
 # compile + run C++ files
 runcpp() {
     # ensure file name was provided
-    if [[ -z "$1" || ! -f "${1}.cpp"]]; then # [[ ... ]] tests multiple conditions, -d returns true if file exists, ${} places explicit bounds around var
+    if [[ -z "$1" || ! -f "${1}.cpp" ]]; then # [[ ... ]] tests multiple conditions, -d returns true if file exists, ${} places explicit bounds around var
         print -P "%F{196}%BError: Please provide a valid C++ file name.%b%f" # red foreground / text color, bold
         print -P "%F{45}Example: runcpp main%f" # cyan foreground / text color
         return 1
