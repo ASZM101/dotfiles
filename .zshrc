@@ -29,7 +29,7 @@ syncrc() { # rc = run commands
         print -P "%F{213}Local Mac detected. Backing up and pushing changes to GitHub...%f" # magenta foreground / text color
         (
 			# && is safety link operator (runs next command if previous command was successful), \ is line continuation character (treats next line as part of same command, must be last char on line)
-            cd "$dir" && \ 
+            cd "$dir" && \
             git add . && \
             git commit -m "Auto-update dotfiles: $(date '+%Y-%m-%d %H:%M:%S')" && \
             git push origin main
