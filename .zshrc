@@ -7,7 +7,7 @@ fi
 export TZ="America/Chicago"
 
 # custom prompt configuration
-PROMPT="%F{219}%B%S aszm %s%b %1~ %% %f" # left: pink foreground / text color, bold, standout mode (swaps foreground + background), current folder
+PROMPT="%F{219}%B%S aszm %s%b %1~ %f" # left: pink foreground / text color, bold, standout mode (swaps foreground + background), current folder
 RPROMPT="%F{219}%D{%Y-%m-%d} @ %T%f" # right: pink foreground / text color, custom date (ISO 8601), 24hr time
 
 # sync settings from dotfiles in repo
@@ -40,7 +40,8 @@ syncrc() { # rc = run commands
     # pull updates from GitHub
     else
         print -P "%F{213}GitHub Codespace detected. Fetching latest configurations...%f" # magenta foreground / text color
-        (cd "$dir" && git pull) && cat "$dir/.zshrc" > ~/.zshrc && source ~/.zshrc # () creates subshell (end up in directory you started), cat = concatenate, > overwrites file or creates it if doesn't exist (>> appends to file or creates if nonexistent)
+        (cd "$dir" && git pull) && cat "$dir/.zshrc" > ~/.zshrc && source ~/.zshrc # () creates subshell (end up in directory you started)
+		# removed cat "$dir/.zshrc" > ~/.zshrc (cat = concatenate, > overwrites file or creates it if doesn't exist, >> appends to file or creates if nonexistent), source directly from git instead of overwriting, no longer breaks GitHub's symbolic link (symlink) to dotfiles repo
         print -P "%F{46}Codespace configurations updated successfully!%f" # green foreground / text color
     fi
 }
